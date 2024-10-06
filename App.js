@@ -1,15 +1,38 @@
 const expree=require("express");
 const app=expree();
 
-  app.use("/" , (req,res)=>{
-    res.send("This is my first Server");
-  // console.log("This is my first Server");
-})
 
-app.use("/test" , (req,res)=>{
-  res.send("This is my test router Server");
-  // console.log("This is my first Server");
+
+
+// .................2
+
+  app.get("/" , (req,res)=>{
+    res.send("This is my first Server");
+  console.log("This is my first Server of console");
+});
+app.get("/hello" , (req,res)=>{
+  res.send("This is my hello router Server..........");
+  console.log("This is my first Server of hello route");
+});
+app.get("/test" , (req,res)=>{
+  res.send("This is my hello router Server..........");
+  console.log("This is my first Server of hello route");
+}) 
+  
+// .........................1
+
+app.get("/user",(req,res)=>{
+  res.send(
+    {first:"gaurav",
+      last:"mishra"
+    } )
+});
+app.post("/user",(req,res)=>{
+  res.send("data save on database..")
 })
-app.listen(9000,()=>{
+app.delete("/user",(req,res)=>{
+  res.send("data delete on database..")
+})
+app.listen(8000,()=>{
   console.log("Server connecetion successfull.............")
 })
